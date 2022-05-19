@@ -21,10 +21,10 @@ function textBillTotal(){
     var billTypeEntered = billTypeText.value.trim();
 
     // update the correct total
-    if (billTypeEntered === "call"){
+    if (billTypeEntered === "call" || billTypeEntered === "Call" || billTypeEntered === "CALL"){
         callsTotal += 2.75;
     }
-    else if (billTypeEntered === "sms"){
+    else if (billTypeEntered === "sms" || billTypeEntered === "SMS"){
         smsTotal += 0.75;
     }
     

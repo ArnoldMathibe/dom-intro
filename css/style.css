@@ -15,7 +15,10 @@
   color: crimson;
   font-weight: bold;
 }
-
+.critical{
+  color: red;
+  font-weight: bold;
+}
 .total {
   font-weight: bold;
   font-size: 2em;
