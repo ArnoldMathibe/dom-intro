@@ -43,15 +43,4 @@ function radioBillTotal(){
         totalTwoElem.classList.add("warning");
     }
     
-    if (callsTotalTwo >= 35) {
-        callTotalTwoElem.classList.add("danger");
-    }else if (callsTotalTwo >= 25) {
-        callTotalTwoElem.classList.add("warning");
-    }
-
-    if (smsTotalTwo >= 25) {
-        smsTotalTwoElem.classList.add("danger");
-    }else if (smsTotalTwo >= 15) {
-        smsTotalTwoElem.classList.add("warning");
-    }
 }

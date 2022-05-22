@@ -22,6 +22,7 @@ var criticalLevelSetting = 0;
 var callTotalSettings = 0;
 var smsTotalSettings = 0;
 var totalCostSettings = 0;
+
 //add an event listener for when the 'Update settings' button is pressed
 updateSettingsElem.addEventListener('click', settingsUpdateBill);
 //add an event listener for when the add button is pressed
@@ -52,32 +53,38 @@ function settingsUpdateBill(){
     }
     totalSettingsElem.classList.remove("warning");
     totalSettingsElem.classList.remove("danger");
-    if (warninglevelSetting && criticalLevelSetting) {
-        if (totalCostSettings >= criticalLevelSetting) {
-            totalSettingsElem.classList.add("danger");
-        }
-        else if (totalCostSettings >= warningLevelSetting && totalCostSettings <= criticalLevelSetting) {
-            totalSettingsElem.classList.add("warning");
-        }
-    }
+}
+
+function smsCallSettings(){
+    return Number(callTotalSettings)+Number(smsTotalSettings);
 }
 function settingsAddBill(){
 
     var settingsCheckedRadio = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-    if (settingsCheckedRadio) {
-        var billItemTypeWithSettings = settingsCheckedRadio.value;
-        if (billItemTypeWithSettings === "call") {
-            callTotalSettings += callCostSetting;
-        }
-        else if (billItemTypeWithSettings === "sms") {
-            smsTotalSettings += smsCostSetting;
-        }
+    var billItemTypeWithSettings = settingsCheckedRadio.value;
+    var billSet = smsCallSettings();
+    if (billSet < criticalLevelSetting) {
+            var billItemTypeWithSettings = settingsCheckedRadio.value;
+            if (billItemTypeWithSettings === "call") {
+                callTotalSettings += callCostSetting;
+            }
+            else if (billItemTypeWithSettings === "sms") {
+                smsTotalSettings += smsCostSetting;
+            }
     }
+  /*  callTotalSettingsElem.innerHTML = callTotalSettings.toFixed(2);
+    smsTotalSettingsElem.innerHTML = smsTotalSettings.toFixed(2);
+    var totalCostSettings = smsCallSettings();
+    totalSettingsElem.innerHTML = totalCostSettings.toFixed(2);
+*/
+    criticalFunc();
+}
+function criticalFunc(){
     callTotalSettingsElem.innerHTML = callTotalSettings.toFixed(2);
     smsTotalSettingsElem.innerHTML = smsTotalSettings.toFixed(2);
-    var totalCostSettings = callTotalSettings + smsTotalSettings;
+    var totalCostSettings = smsCallSettings();
     totalSettingsElem.innerHTML = totalCostSettings.toFixed(2);
-    
+
     totalSettingsElem.classList.remove("warning");
     totalSettingsElem.classList.remove("danger");
     if (totalCostSettings >= criticalLevelSetting) {
