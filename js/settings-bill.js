@@ -72,11 +72,7 @@ function settingsAddBill(){
                 smsTotalSettings += smsCostSetting;
             }
     }
-  /*  callTotalSettingsElem.innerHTML = callTotalSettings.toFixed(2);
-    smsTotalSettingsElem.innerHTML = smsTotalSettings.toFixed(2);
-    var totalCostSettings = smsCallSettings();
-    totalSettingsElem.innerHTML = totalCostSettings.toFixed(2);
-*/
+
     criticalFunc();
 }
 function criticalFunc(){

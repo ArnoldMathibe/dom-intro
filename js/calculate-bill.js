@@ -22,7 +22,7 @@ function calculateBtnClicked(){
     //loop over all the bill items
     for (var i=0;i<billItems.length;i++){
         var billItem = billItems[i].trim();
-        if (billItem === "call" || billItem === "Call" || "CALL"){
+        if (billItem === "call" || billItem === "CALL" || billItem === "Call"){
             billTotal += 2.75;
         }
         else if (billItem === "sms" || billItem === "SMS"){
@@ -34,8 +34,8 @@ function calculateBtnClicked(){
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
 
-    //color the total based on the criteria
-    if (billTotal >= 30){
+     //color the total based on the criteria
+     if (billTotal >= 30){
         // adding the danger class will make the text red
         billTotalElement.classList.add("danger");
     }
