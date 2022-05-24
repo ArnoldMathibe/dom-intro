@@ -5,7 +5,10 @@
   height: auto;
   margin-bottom: 1em;
 }
-
+.total{
+  padding: 0.8em;
+  height: 0.7em;
+}
 .warning {
   color: orange;
   font-weight: bold;
