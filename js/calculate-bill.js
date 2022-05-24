@@ -35,11 +35,13 @@ function calculateBtnClicked(){
     billTotalElement.innerHTML = roundedBillTotal;
 
      //color the total based on the criteria
+     billTotalElement.classList.remove("warning");
+     billTotalElement.classList.remove("danger");
      if (billTotal >= 30){
         // adding the danger class will make the text red
         billTotalElement.classList.add("danger");
     }
-    else if (billTotal >= 20){
+    else if (billTotal >= 20 && billTotal < 30){
         billTotalElement.classList.add("warning");
     }
 }
